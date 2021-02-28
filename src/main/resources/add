@@ -1,0 +1,9 @@
+docker-compose up -d
+
+docker exec 16_broker_1 kafka-topics --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 3 --topic input
+docker exec 16_broker_1 kafka-topics --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 3 --topic prediction
+
+docker exec 16_broker_1 kafka-console-consumer --bootstrap-server localhost:9092 --topic input
+docker exec 16_broker_1 bash -c "/scripts/output.sh | kafka-console-producer --bootstrap-server localhost:9092 --topic input"
+
+docker exec 16_broker_1 kafka-console-consumer --bootstrap-server localhost:9092 --topic prediction

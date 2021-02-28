@@ -1,0 +1,404 @@
+﻿{
+ "paragraphs": [
+  {
+   "text": "%spark.conf\n\nSPARK_HOME /home/mike/spark-3.0.2-bin-hadoop3.2\n\n\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:20+0300",
+   "progress": 0.0,
+   "config": {
+    "editorSetting": {
+     "language": "scala",
+     "editOnDblClick": false,
+     "completionKey": "TAB",
+     "completionSupport": true
+    },
+    "colWidth": 12.0,
+    "editorMode": "ace/mode/scala",
+    "fontSize": 9.0,
+    "results": {},
+    "enabled": true
+   },
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": []
+   },
+   "apps": [],
+   "runtimeInfos": {},
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532699967_1116701665",
+   "id": "paragraph_1614532699967_1116701665",
+   "dateCreated": "2021-02-28T20:18:19+0300",
+   "dateStarted": "2021-02-28T20:18:20+0300",
+   "dateFinished": "2021-02-28T20:18:20+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "import org.apache.spark.sql.DataFrame\n\nval data: DataFrame = spark\n  .read\n  .format(\"libsvm\")\n  .load(\"/home/mike/_learn/repos/otus/spark/hw/16/src/main/resources/iris_libsvm.txt\")\n\ndata.show\ndata.printSchema\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:20+0300",
+   "progress": 0.0,
+   "config": {
+    "results": [
+     {}
+    ]
+   },
+   "settings": {
+    "params": {
+     "bdtMeta": {
+      "inlay": {
+       "state": {
+        "currentPage": "Table",
+        "chart": {
+         "series": [
+          {
+           "type": "Pie",
+           "values": {
+            "column": "label",
+            "index": 0.0
+           },
+           "labels": {
+            "column": "features",
+            "index": 1.0
+           },
+           "showPercents": true
+          }
+         ]
+        }
+       }
+      }
+     }
+    },
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": [
+     {
+      "type": "TEXT",
+      "data": "+-----+--------------------+\n|label|            features|\n+-----+--------------------+\n|  0.0|(4,[0,1,2,3],[5.1...|\n|  0.0|(4,[0,1,2,3],[4.9...|\n|  0.0|(4,[0,1,2,3],[4.7...|\n|  0.0|(4,[0,1,2,3],[4.6...|\n|  0.0|(4,[0,1,2,3],[5.0...|\n|  0.0|(4,[0,1,2,3],[5.4...|\n|  0.0|(4,[0,1,2,3],[4.6...|\n|  0.0|(4,[0,1,2,3],[5.0...|\n|  0.0|(4,[0,1,2,3],[4.4...|\n|  0.0|(4,[0,1,2,3],[4.9...|\n|  0.0|(4,[0,1,2,3],[5.4...|\n|  0.0|(4,[0,1,2,3],[4.8...|\n|  0.0|(4,[0,1,2,3],[4.8...|\n|  0.0|(4,[0,1,2,3],[4.3...|\n|  0.0|(4,[0,1,2,3],[5.8...|\n|  0.0|(4,[0,1,2,3],[5.7...|\n|  0.0|(4,[0,1,2,3],[5.4...|\n|  0.0|(4,[0,1,2,3],[5.1...|\n|  0.0|(4,[0,1,2,3],[5.7...|\n|  0.0|(4,[0,1,2,3],[5.1...|\n+-----+--------------------+\nonly showing top 20 rows\n\nroot\n |-- label: double (nullable = true)\n |-- features: vector (nullable = true)\n\nimport org.apache.spark.sql.DataFrame\n\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [label: double, features: vector]\n"
+     }
+    ]
+   },
+   "apps": [],
+   "runtimeInfos": {
+    "jobUrl": {
+     "propertyName": "jobUrl",
+     "label": "SPARK JOB",
+     "tooltip": "View in Spark web UI",
+     "group": "spark",
+     "values": [
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=36"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=37"
+      }
+     ],
+     "interpreterSettingId": "spark"
+    }
+   },
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532700032_787914485",
+   "id": "paragraph_1614532700032_787914485",
+   "dateCreated": "2021-02-28T20:18:20+0300",
+   "dateStarted": "2021-02-28T20:18:20+0300",
+   "dateFinished": "2021-02-28T20:18:20+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "val Array(trainData, testData) = data.randomSplit(Array(0.7, 0.3))\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:20+0300",
+   "progress": 0.0,
+   "config": {},
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": [
+     {
+      "type": "TEXT",
+      "data": "\u001b[1m\u001b[34mtrainData\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [label: double, features: vector]\n\u001b[1m\u001b[34mtestData\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [label: double, features: vector]\n"
+     }
+    ]
+   },
+   "apps": [],
+   "runtimeInfos": {},
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532700311_1324599074",
+   "id": "paragraph_1614532700311_1324599074",
+   "dateCreated": "2021-02-28T20:18:20+0300",
+   "dateStarted": "2021-02-28T20:18:20+0300",
+   "dateFinished": "2021-02-28T20:18:20+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "import org.apache.spark.ml.classification.DecisionTreeClassifier\n\nval dt: DecisionTreeClassifier = new DecisionTreeClassifier()\n  .setFeaturesCol(\"features\")\n  .setLabelCol(\"label\")\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:20+0300",
+   "progress": 0.0,
+   "config": {},
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": [
+     {
+      "type": "TEXT",
+      "data": "import org.apache.spark.ml.classification.DecisionTreeClassifier\n\u001b[1m\u001b[34mdt\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.ml.classification.DecisionTreeClassifier\u001b[0m = dtc_b8c25c9ffe60\n"
+     }
+    ]
+   },
+   "apps": [],
+   "runtimeInfos": {},
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532700467_1364408640",
+   "id": "paragraph_1614532700467_1364408640",
+   "dateCreated": "2021-02-28T20:18:20+0300",
+   "dateStarted": "2021-02-28T20:18:20+0300",
+   "dateFinished": "2021-02-28T20:18:20+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "import org.apache.spark.ml.Pipeline\n\nval pipeline: Pipeline = new Pipeline().setStages(Array(dt))\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:20+0300",
+   "progress": 0.0,
+   "config": {},
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": [
+     {
+      "type": "TEXT",
+      "data": "import org.apache.spark.ml.Pipeline\n\u001b[1m\u001b[34mpipeline\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.ml.Pipeline\u001b[0m = pipeline_993cd18c6936\n"
+     }
+    ]
+   },
+   "apps": [],
+   "runtimeInfos": {},
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532700764_1228313412",
+   "id": "paragraph_1614532700764_1228313412",
+   "dateCreated": "2021-02-28T20:18:20+0300",
+   "dateStarted": "2021-02-28T20:18:20+0300",
+   "dateFinished": "2021-02-28T20:18:20+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "import org.apache.spark.ml.PipelineModel\n\nval dtModel: PipelineModel = pipeline.fit(trainData)\n\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:20+0300",
+   "progress": 50.0,
+   "config": {},
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": [
+     {
+      "type": "TEXT",
+      "data": "import org.apache.spark.ml.PipelineModel\n\u001b[1m\u001b[34mdtModel\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.ml.PipelineModel\u001b[0m = pipeline_993cd18c6936\n"
+     }
+    ]
+   },
+   "apps": [],
+   "runtimeInfos": {
+    "jobUrl": {
+     "propertyName": "jobUrl",
+     "label": "SPARK JOB",
+     "tooltip": "View in Spark web UI",
+     "group": "spark",
+     "values": [
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=38"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=39"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=40"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=41"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=42"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=43"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=44"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=45"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=46"
+      }
+     ],
+     "interpreterSettingId": "spark"
+    }
+   },
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532700890_125113121",
+   "id": "paragraph_1614532700890_125113121",
+   "dateCreated": "2021-02-28T20:18:20+0300",
+   "dateStarted": "2021-02-28T20:18:20+0300",
+   "dateFinished": "2021-02-28T20:18:21+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "val prediction: DataFrame = dtModel.transform(testData)\nprediction.show",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:21+0300",
+   "progress": 0.0,
+   "config": {},
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": [
+     {
+      "type": "TEXT",
+      "data": "+-----+--------------------+--------------+-------------+----------+\n|label|            features| rawPrediction|  probability|prediction|\n+-----+--------------------+--------------+-------------+----------+\n|  0.0|(4,[0,1,2,3],[4.3...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.4...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.6...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.6...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.7...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.7...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.8...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.9...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[4.9...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.0...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.0...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.0...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.0...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.1...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.1...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.1...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.2...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.2...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.4...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n|  0.0|(4,[0,1,2,3],[5.8...|[30.0,0.0,0.0]|[1.0,0.0,0.0]|       0.0|\n+-----+--------------------+--------------+-------------+----------+\nonly showing top 20 rows\n\n\u001b[1m\u001b[34mprediction\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [label: double, features: vector ... 3 more fields]\n"
+     }
+    ]
+   },
+   "apps": [],
+   "runtimeInfos": {
+    "jobUrl": {
+     "propertyName": "jobUrl",
+     "label": "SPARK JOB",
+     "tooltip": "View in Spark web UI",
+     "group": "spark",
+     "values": [
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=47"
+      }
+     ],
+     "interpreterSettingId": "spark"
+    }
+   },
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532701509_1643056228",
+   "id": "paragraph_1614532701509_1643056228",
+   "dateCreated": "2021-02-28T20:18:21+0300",
+   "dateStarted": "2021-02-28T20:18:21+0300",
+   "dateFinished": "2021-02-28T20:18:21+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator\n\nval evaluator: MulticlassClassificationEvaluator = new MulticlassClassificationEvaluator()\n  .setLabelCol(\"label\")\n  .setPredictionCol(\"prediction\")\n  .setMetricName(\"accuracy\")\n\nval accuracy: Double = evaluator.evaluate(prediction)\nprintln(accuracy)\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:21+0300",
+   "progress": 0.0,
+   "config": {},
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": [
+     {
+      "type": "TEXT",
+      "data": "0.9433962264150944\nimport org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator\n\u001b[1m\u001b[34mevaluator\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.ml.evaluation.MulticlassClassificationEvaluator\u001b[0m = MulticlassClassificationEvaluator: uid=mcEval_7b16cd414846, metricName=accuracy, metricLabel=0.0, beta=1.0, eps=1.0E-15\n\u001b[1m\u001b[34maccuracy\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 0.9433962264150944\n"
+     }
+    ]
+   },
+   "apps": [],
+   "runtimeInfos": {
+    "jobUrl": {
+     "propertyName": "jobUrl",
+     "label": "SPARK JOB",
+     "tooltip": "View in Spark web UI",
+     "group": "spark",
+     "values": [
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=48"
+      }
+     ],
+     "interpreterSettingId": "spark"
+    }
+   },
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532701749_1646060875",
+   "id": "paragraph_1614532701749_1646060875",
+   "dateCreated": "2021-02-28T20:18:21+0300",
+   "dateStarted": "2021-02-28T20:18:21+0300",
+   "dateFinished": "2021-02-28T20:18:21+0300",
+   "status": "FINISHED"
+  },
+  {
+   "text": "dtModel\n  .write\n  .overwrite        \n  .save(\"/home/mike/_learn/repos/otus/spark/hw/16/src/main/resources/model\")\n",
+   "user": "anonymous",
+   "dateUpdated": "2021-02-28T20:18:22+0300",
+   "progress": 0.0,
+   "config": {},
+   "settings": {
+    "params": {},
+    "forms": {}
+   },
+   "results": {
+    "code": "SUCCESS",
+    "msg": []
+   },
+   "apps": [],
+   "runtimeInfos": {
+    "jobUrl": {
+     "propertyName": "jobUrl",
+     "label": "SPARK JOB",
+     "tooltip": "View in Spark web UI",
+     "group": "spark",
+     "values": [
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=49"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=50"
+      },
+      {
+       "jobUrl": "http://192.168.1.99:4040/jobs/job?id=51"
+      }
+     ],
+     "interpreterSettingId": "spark"
+    }
+   },
+   "progressUpdateIntervalMs": 500.0,
+   "jobName": "paragraph_1614532701976_184345346",
+   "id": "paragraph_1614532701976_184345346",
+   "dateCreated": "2021-02-28T20:18:21+0300",
+   "dateStarted": "2021-02-28T20:18:22+0300",
+   "dateFinished": "2021-02-28T20:18:23+0300",
+   "status": "FINISHED"
+  }
+ ],
+ "name": "Zeppelin Notebook",
+ "id": "",
+ "noteParams": {},
+ "noteForms": {},
+ "angularObjects": {},
+ "config": {
+  "isZeppelinNotebookCronEnable": false,
+  "looknfeel": "default",
+  "personalizedMode": "false"
+ },
+ "info": {}
+}
